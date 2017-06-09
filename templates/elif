@@ -1,0 +1,7 @@
+    {% if session["result"] == "WIN" %}
+    <h1>YOU WON</h1>
+    {% elif session["result"] == "LOST" %}
+    <h1>YOU LOST</h1>
+     {% elif session["result"] == "DRAW" %}
+    <h1>YOU GOT A DRAW</h1>
+    {% endif %}

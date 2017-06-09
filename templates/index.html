@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock Paper scissors</title>
+</head>
+<body>
+    <form action= "/result" method="POST">
+        <button action="/result" value= "1" name= "name">Rock</button>
+        <button action="/result" value= "2" name= "name">Paper</button>
+        <button action="/result" value= "3" name= "name">scissors</button>
+    </form>
+    {% if session["result"] == "WIN" %}
+    <h1>YOU WON</h1>
+    {% elif session["result"] == "LOST" %}
+    <h1>YOU LOST</h1>
+     {% elif session["result"] == "DRAW" %}
+    <h1>YOU GOT A DRAW</h1>
+    {% endif %}
+    <p>WINS:{{ session["WIN"] }}</p>
+    <p>LOSSES:{{ session["LOST"] }}</p>
+    <p>DRAWS:{{ session["DRAWS"] }}</p>
+    {% if (session["WIN"] + session["LOST"]+ session["DRAWS"])>= 5 %}
+    <p>GAME OVER</p>
+    <a href="/">Reset</a>
+    {% endif %}
+</body>
+</html>
